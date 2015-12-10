@@ -16,4 +16,22 @@ public class GSM {
 		}
 	}
 
+	void removeSimCard() {
+		hasSimCard = false;
+	}
+	
+	void call (GSM receiver, int duration){
+		if (duration < 0){
+			System.out.println("Invalid call duration!");
+		}
+		if (this == receiver){
+			System.out.println("You are trying to call yourself!");
+		}
+		if (receiver.hasSimCard = false) {
+			System.out.println("Number can't be reached or is out of service!");
+		}
+		if (this.hasSimCard = false) {
+			System.out.println("You can not make a call without having a SIM card in your phone!");
+		}
+	}
 }
