@@ -10,7 +10,11 @@ public class GSM {
 
 	void insertSimCard(String phoneNumber) {
 		if (phoneNumber.length() == 10 && phoneNumber.charAt(0) == '0' && phoneNumber.charAt(1) == '8') {
-			hasSimCard = true;
+			for (int i=2; i<phoneNumber.length(); i++){
+				if (phoneNumber.charAt(i) >= '0' && phoneNumber.charAt(i) <= '9'){
+					hasSimCard = true;
+				}
+			}
 		} else {
 			System.out.println("Invalid phone number!");
 		}
