@@ -8,13 +8,12 @@ public class GSM {
 	int lastIncomingCall;
 	int lastOutgoingCall;
 
-	void insertSimCard(String phoneNumber){
-		if (phoneNumber.length() == 10 && phoneNumber.charAt(0) ==0 && phoneNumber.charAt(1) ==8)	{
+	void insertSimCard(String phoneNumber) {
+		if (phoneNumber.length() == 10 && phoneNumber.charAt(0) == '0' && phoneNumber.charAt(1) == '8') {
 			hasSimCard = true;
-		}
-		else {
+		} else {
 			System.out.println("Invalid phone number!");
 		}
 	}
-	
+
 }
