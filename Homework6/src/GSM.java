@@ -5,8 +5,8 @@ public class GSM {
 	boolean hasSimCard;
 	String simMobileNumber;
 	int outgoingCallsDuration;
-	int lastIncomingCall;
-	int lastOutgoingCall;
+	Call lastIncomingCall;
+	Call lastOutgoingCall;
 
 	void insertSimCard(String phoneNumber) {
 		if (phoneNumber.length() == 10 && phoneNumber.charAt(0) == '0' && phoneNumber.charAt(1) == '8') {
@@ -33,5 +33,14 @@ public class GSM {
 		if (this.hasSimCard = false) {
 			System.out.println("You can not make a call without having a SIM card in your phone!");
 		}
+		else{
+			Call newCall = new Call();
+			newCall.duration = duration;
+			newCall.receiver = receiver;
+			newCall.caller = this;
+			this.lastOutgoingCall = newCall;
+			
+		}
+		
 	}
 }
