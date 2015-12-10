@@ -46,4 +46,26 @@ public class GSM {
 	double getSumForCall() {
 		return this.outgoingCallsDuration * Call.priceForAMinute;
 	}
+
+	void printInfoForTheLastOutgoingCall() {
+		if (lastOutgoingCall == null) {
+			System.out.println("No outgoing calls from that phone!");
+		} else {
+			System.out.println("Last outgoing call info:");
+			System.out.println("Duration: " + lastOutgoingCall.duration + " minutes");
+			System.out.println("Receiver: " + lastOutgoingCall.receiver);
+			System.out.println("Price: " + lastOutgoingCall.caller.getSumForCall() + " BGN");
+		}
+	}
+
+	void printInfoForTheLastIncomingCall() {
+		if (lastIncomingCall == null) {
+			System.out.println("No incoming calls from that phone!");
+		} else {
+			System.out.println("Last incoming call info:");
+			System.out.println("Duration: " + lastIncomingCall.duration + " minutes");
+			System.out.println("Caller: " + lastIncomingCall.caller);
+		}
+	}
+
 }
