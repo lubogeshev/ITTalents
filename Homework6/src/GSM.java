@@ -39,8 +39,11 @@ public class GSM {
 			newCall.receiver = receiver;
 			newCall.caller = this;
 			this.lastOutgoingCall = newCall;
+			receiver.lastIncomingCall = newCall;
+			this.outgoingCallsDuration += duration;
 			
 		}
+		
 		
 	}
 }
