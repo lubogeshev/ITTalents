@@ -19,12 +19,12 @@ public class GSM {
 	void removeSimCard() {
 		hasSimCard = false;
 	}
-	
-	void call (GSM receiver, int duration){
-		if (duration < 0){
+
+	void call(GSM receiver, int duration) {
+		if (duration < 0) {
 			System.out.println("Invalid call duration!");
 		}
-		if (this == receiver){
+		if (this == receiver) {
 			System.out.println("You are trying to call yourself!");
 		}
 		if (receiver.hasSimCard = false) {
@@ -32,8 +32,7 @@ public class GSM {
 		}
 		if (this.hasSimCard = false) {
 			System.out.println("You can not make a call without having a SIM card in your phone!");
-		}
-		else{
+		} else {
 			Call newCall = new Call();
 			newCall.duration = duration;
 			newCall.receiver = receiver;
@@ -41,9 +40,10 @@ public class GSM {
 			this.lastOutgoingCall = newCall;
 			receiver.lastIncomingCall = newCall;
 			this.outgoingCallsDuration += duration;
-			
 		}
-		
-		
+	}
+
+	double getSumForCall() {
+		return this.outgoingCallsDuration * Call.priceForAMinute;
 	}
 }
