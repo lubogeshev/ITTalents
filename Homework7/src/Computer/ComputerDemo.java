@@ -3,7 +3,7 @@ public class ComputerDemo {
 
 	public static void main(String[] args) {
 
-		Computer1 asus = new Computer1();
+		Computer asus = new Computer();
 		asus.year = 2014;
 		asus.price = 999.99;
 		asus.hardDiskMemory = 500;
@@ -11,7 +11,7 @@ public class ComputerDemo {
 		asus.operationSystem = "Linux";
 		asus.isNotebook = true;
 
-		Computer1 hp = new Computer1();
+		Computer hp = new Computer();
 		hp.year = 2015;
 		hp.price = 1499.99;
 		hp.hardDiskMemory = 2000;
