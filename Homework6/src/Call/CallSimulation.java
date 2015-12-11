@@ -1,5 +1,7 @@
 package Call;
 
+import java.util.Random;
+
 public class CallSimulation {
 
 	public static void main(String[] args) {
@@ -18,10 +20,16 @@ public class CallSimulation {
 		nokia.printInfoForTheLastOutgoingCall();
 		samsung.printInfoForTheLastOutgoingCall();
 		System.out.println();
-
-		nokia.call(samsung, 8);
-		System.out.println();
-
+		
+		int calls = 5;
+		Random r = new Random();
+		for (int i=0; i < calls; i++){
+			if (r.nextBoolean()){
+				nokia.call(samsung, (r.nextInt(60))); //random call up to 1h long
+			} else {
+				samsung.call(nokia, r.nextInt(60));
+			}
+		}
 		nokia.printInfoForTheLastIncomingCall();
 		samsung.printInfoForTheLastIncomingCall();
 		System.out.println();
@@ -29,29 +37,6 @@ public class CallSimulation {
 		nokia.printInfoForTheLastOutgoingCall();
 		samsung.printInfoForTheLastOutgoingCall();
 		System.out.println();
-		
-		nokia.call(samsung, 81);
-		System.out.println();
-
-		nokia.printInfoForTheLastIncomingCall();
-		samsung.printInfoForTheLastIncomingCall();
-		System.out.println();
-
-		nokia.printInfoForTheLastOutgoingCall();
-		samsung.printInfoForTheLastOutgoingCall();
-		System.out.println();
-		
-		samsung.call(nokia, 22);
-		System.out.println();
-
-		nokia.printInfoForTheLastIncomingCall();
-		samsung.printInfoForTheLastIncomingCall();
-		System.out.println();
-
-		nokia.printInfoForTheLastOutgoingCall();
-		samsung.printInfoForTheLastOutgoingCall();
-		System.out.println();
-		
 
 	}
 }
