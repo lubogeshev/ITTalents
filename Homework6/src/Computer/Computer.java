@@ -9,6 +9,24 @@ public class Computer {
 	double freeMemory;
 	String operationSystem;
 
+	public Computer() {
+		isNotebook = false;
+		operationSystem = "Win XP";
+	}
+
+	public Computer(int year, double price, double hardDiskMemory, double freeMemory) {
+		this();
+		this.year = year;
+		this.price = price;
+		this.hardDiskMemory = hardDiskMemory;
+		this.freeMemory = freeMemory;
+	}
+
+	public Computer(int year, double price, boolean isNotebook, double hardDiskMemory, double freeMemory,
+			String operationSystem) {
+		this(year, price, hardDiskMemory, freeMemory);
+	}
+
 	void changeOperationSystem(String newOperationSystem) {
 		operationSystem = newOperationSystem;
 	}
@@ -19,5 +37,5 @@ public class Computer {
 		else
 			System.out.println("Not enough free memory!");
 	}
-	
+
 }
