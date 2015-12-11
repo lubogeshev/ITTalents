@@ -35,15 +35,15 @@ public class GSM {
 			System.out.println("Invalid call duration!");
 			return;
 		}
-		else if (this == receiver) {
+		if (this == receiver) {
 			System.out.println("You are trying to call yourself!");
 			return;
 		}
-		else if (receiver.hasSimCard = false) {
+		if (!receiver.hasSimCard) {
 			System.out.println("Number can't be reached or is out of service!");
 			return;
 		}
-		else if (this.hasSimCard = false) {
+		if (!this.hasSimCard) {
 			System.out.println("You can not make a call without having a SIM card in your phone!");
 			return;
 		} else {
