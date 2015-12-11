@@ -1,4 +1,5 @@
 package Call;
+
 public class GSM {
 
 	String model;
@@ -9,10 +10,15 @@ public class GSM {
 	Call lastOutgoingCall;
 
 	void insertSimCard(String phoneNumber) {
+		hasSimCard = false;
 		if (phoneNumber.length() == 10 && phoneNumber.charAt(0) == '0' && phoneNumber.charAt(1) == '8') {
-			for (int i=2; i<phoneNumber.length(); i++){
-				if (phoneNumber.charAt(i) >= '0' && phoneNumber.charAt(i) <= '9'){
-					hasSimCard = true;
+			hasSimCard = true;
+		}
+		if (hasSimCard) {
+			for (int i = 2; i < phoneNumber.length(); i++) {
+				if (phoneNumber.charAt(i) < '0' && phoneNumber.charAt(i) > '9') {
+					hasSimCard = false;
+					break;
 				}
 			}
 		} else {
