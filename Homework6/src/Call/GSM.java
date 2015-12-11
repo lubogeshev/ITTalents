@@ -10,14 +10,14 @@ public class GSM {
 	Call lastOutgoingCall;
 
 	void insertSimCard(String phoneNumber) {
-		hasSimCard = false;
+		this.hasSimCard = false;
 		if (phoneNumber.length() == 10 && phoneNumber.charAt(0) == '0' && phoneNumber.charAt(1) == '8') {
-			hasSimCard = true;
+			this.hasSimCard = true;
 		}
-		if (hasSimCard) {
+		if (this.hasSimCard) {
 			for (int i = 2; i < phoneNumber.length(); i++) {
 				if (phoneNumber.charAt(i) < '0' && phoneNumber.charAt(i) > '9') {
-					hasSimCard = false;
+					this.hasSimCard = false;
 					break;
 				}
 			}
@@ -27,21 +27,25 @@ public class GSM {
 	}
 
 	void removeSimCard() {
-		hasSimCard = false;
+		this.hasSimCard = false;
 	}
 
 	void call(GSM receiver, int duration) {
 		if (duration < 0) {
 			System.out.println("Invalid call duration!");
+			return;
 		}
-		if (this == receiver) {
+		else if (this == receiver) {
 			System.out.println("You are trying to call yourself!");
+			return;
 		}
-		if (receiver.hasSimCard = false) {
+		else if (receiver.hasSimCard = false) {
 			System.out.println("Number can't be reached or is out of service!");
+			return;
 		}
-		if (this.hasSimCard = false) {
+		else if (this.hasSimCard = false) {
 			System.out.println("You can not make a call without having a SIM card in your phone!");
+			return;
 		} else {
 			Call newCall = new Call();
 			newCall.duration = duration;
@@ -50,6 +54,7 @@ public class GSM {
 			this.lastOutgoingCall = newCall;
 			receiver.lastIncomingCall = newCall;
 			this.outgoingCallsDuration += duration;
+			System.out.println(this.model + " called " + receiver.model);
 		}
 	}
 
@@ -59,22 +64,23 @@ public class GSM {
 
 	void printInfoForTheLastOutgoingCall() {
 		if (lastOutgoingCall == null) {
-			System.out.println("No outgoing calls from that phone!");
+			System.out.println("No outgoing calls from " + this.model + "!");
 		} else {
-			System.out.println("Last outgoing call info:");
+			System.out.println("Last outgoing call info for " + this.model);
 			System.out.println("Duration: " + lastOutgoingCall.duration + " minutes");
-			System.out.println("Receiver: " + lastOutgoingCall.receiver);
-			System.out.println("Price: " + lastOutgoingCall.caller.getSumForCall() + " BGN");
+			System.out.println("Receiver: " + lastOutgoingCall.receiver.model);
+			System.out.println("Price: " + lastOutgoingCall.duration * Call.priceForAMinute + " BGN");
+			System.out.println("Total outgoing calls bill: " + this.getSumForCall() + " BGN");
 		}
 	}
 
 	void printInfoForTheLastIncomingCall() {
 		if (lastIncomingCall == null) {
-			System.out.println("No incoming calls from that phone!");
+			System.out.println("No incoming calls for " + this.model + "!");
 		} else {
-			System.out.println("Last incoming call info:");
+			System.out.println("Last incoming call info for " + this.model);
 			System.out.println("Duration: " + lastIncomingCall.duration + " minutes");
-			System.out.println("Caller: " + lastIncomingCall.caller);
+			System.out.println("Caller: " + lastIncomingCall.caller.model);
 		}
 	}
 
