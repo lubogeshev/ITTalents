@@ -8,6 +8,7 @@ public class Computer {
 	double hardDiskMemory;
 	double freeMemory;
 	String operationSystem;
+	String model;
 
 	public Computer() {
 		isNotebook = false;
@@ -30,12 +31,12 @@ public class Computer {
 	}
 
 	void changeOperationSystem(String newOperationSystem) {
-		operationSystem = newOperationSystem;
+		this.operationSystem = newOperationSystem;
 	}
 
 	void useMemory(int memory) {
-		if ((freeMemory - memory) > 0)
-			freeMemory -= memory;
+		if ((this.freeMemory - memory) > 0)
+			this.freeMemory -= memory;
 		else
 			System.out.println("Not enough free memory!");
 	}
@@ -51,5 +52,6 @@ public class Computer {
 			return 0;
 		}
 	}
+	
 
 }
