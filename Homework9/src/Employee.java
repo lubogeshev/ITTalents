@@ -68,10 +68,6 @@ public class Employee {
 		return allWork;
 	}
 
-	public void setAllWork(AllWork allWork) {
-		this.allWork = allWork;
-	}
-
 	public void startWorkingDay() {
 		System.out.println("New day for "+ this.getName() + " at work!");
 		this.setHoursLeft(8);
@@ -79,15 +75,15 @@ public class Employee {
 
 	public void work() {
 		
-		if (!this.allWork.isAllWorkDone()) {
+		if (!allWork.isAllWorkDone()) {
 			if (this.getCurrentTask() == null) {
-				this.setCurrentTask(this.allWork.getNextTask());
+				this.setCurrentTask(allWork.getNextTask());
 			}
 
 			if (this.getCurrentTask().getWorkingHours() == 0) {
 				System.out.println(this.getCurrentTask().getTaskName() + " is done!");
-				System.out.println("New task for " + this.name + " is " + this.allWork.getNextTask().getTaskName());
-				this.setCurrentTask(this.allWork.getNextTask());
+				System.out.println("New task for " + this.name + " is " + allWork.getNextTask().getTaskName());
+				this.setCurrentTask(allWork.getNextTask());
 			}
 
 			if (this.getHoursLeft() == 0) {
@@ -101,7 +97,7 @@ public class Employee {
 			} else {
 				this.setHoursLeft(this.getHoursLeft() - this.getCurrentTask().getWorkingHours());
 				this.getCurrentTask().setWorkingHours(0);
-				this.setCurrentTask(this.allWork.getNextTask());
+				this.setCurrentTask(allWork.getNextTask());
 			}
 			this.showReport();
 
