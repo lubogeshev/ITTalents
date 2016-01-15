@@ -25,8 +25,7 @@ public class Page {
 		this.text = "";
 	}
 
-	void viewPage() {
-		System.out.println(title);
-		System.out.println(text);
+	String viewPage() {
+		return (this.title + "/n" + this.text);
 	}
 }

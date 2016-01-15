@@ -9,30 +9,47 @@ public class SimpleNotepad implements INotepad {
 			numberOfPages = 1;
 		}
 		this.pages = new Page[numberOfPages];
+		for (int i = 0; i < pages.length; i++) {
+			pages[i] = new Page("", "");
+		}
 
 	}
 
 	@Override
-	public void addText(Page page, String newText) {
-		page.addText(newText);
+	public void addText(int pageNumber, String newText) {
+		if (this.validatePageNumber(pageNumber)) {
+			this.pages[pageNumber].addText(newText);
+		}
 	}
 
 	@Override
-	public void replaceText(Page page, String newText) {
-		page.delText();
-		page.addText(newText);
+	public void replaceText(int pageNumber, String newText) {
+		if (this.validatePageNumber(pageNumber)) {
+			this.pages[pageNumber].delText();
+			this.pages[pageNumber].addText(newText);
+		}
 	}
 
 	@Override
-	public void delText(Page page) {
-		page.delText();
+	public void delText(int pageNumber) {
+		if (this.validatePageNumber(pageNumber)) {
+			this.pages[pageNumber].delText();
+		}
 	}
 
 	@Override
 	public void viewPage() {
-		for (int i = 0; i < this.pages.length; i++) {
-			this.pages[i].viewPage();
+		for (int i = 0; i < pages.length; i++){
+			System.out.println(pages[i].viewPage());
 		}
+	}
+	
+	public boolean validatePageNumber (int pageNumber){
+		if ((pageNumber > this.pages.length - 1) || (pageNumber < 0)) {
+			System.out.println("Invalid page number");
+			return false;
+		}
+		return true;
 	}
 
 }

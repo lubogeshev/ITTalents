@@ -1,42 +1,52 @@
+import java.util.Scanner;
 
 public class SecuredNotepad extends SimpleNotepad {
-
-	String password;
+	
+	private String password;
 
 	public SecuredNotepad(int numberOfPages, String password) {
 		super(numberOfPages);
 		this.password = password;
 	}
-
-	public void addText(Page page, String newText, String password) {
+	
+	boolean validatePassword (){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please, enter your Notebook Password!");
+		String password = sc.nextLine();
+		sc.close();
 		if (this.password.equals(password)) {
-			super.addText(page, newText);
-		} else {
-			System.out.println("Invalid password. Page not added!");
+			return true;
 		}
+		System.out.println("Invalid password!");
+		return false;
 	}
-
-	public void replaceText(Page page, String newText, String password) {
-		if (this.password.equals(password)) {
-			super.replaceText(page, newText);
-		} else {
-			System.out.println("Invalid password. Text not added!");
-		}
-	}
-
-	public void delText(Page page, String password) {
-		if (this.password.equals(password)) {
-			super.delText(page);
-		} else {
-			System.out.println("Invalid password. Text not deleted!");
+	
+	@Override
+	public void addText(int pageNumber, String newText) {
+		if (this.validatePassword()){
+			super.addText(pageNumber, newText);
 		}
 	}
 	
-	public void viewPage(String password) {
-		if (this.password.equals(password)) {
-			super.viewPage();
-		} else {
-			System.out.println("Invalid password. Can not show text!");
+	@Override
+	public void replaceText(int pageNumber, String newText) {
+		if (this.validatePassword()){
+			super.replaceText(pageNumber, newText);
 		}
 	}
+	
+	@Override
+	public void delText(int pageNumber) {
+		if (this.validatePassword()){
+			super.delText(pageNumber);
+		}
+	}
+	
+	@Override
+	public void viewPage() {
+		if (this.validatePassword()){
+			super.viewPage();
+		}
+	}
+	
 }
