@@ -10,7 +10,7 @@ public class SecuredNotepad extends SimpleNotepad {
 		this.password = password;
 	}
 	
-	boolean validatePassword (){
+	private boolean validatePassword (){
 		sc = new Scanner(System.in);
 		System.out.println("Please, enter your Notebook Password!");
 		String password = sc.nextLine();
@@ -20,7 +20,13 @@ public class SecuredNotepad extends SimpleNotepad {
 		System.out.println("Invalid password!");
 		return false;
 	}
-	
+
+	public void setPassword(String password) {
+		if (this.validatePassword()){
+			this.password = password;
+		}
+	}
+
 	@Override
 	public void addText(int pageNumber, String newText) {
 		if (this.validatePassword()){
