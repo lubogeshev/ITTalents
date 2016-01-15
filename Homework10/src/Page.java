@@ -18,7 +18,7 @@ public class Page {
 	}
 
 	void addText(String newText) {
-		this.text.concat (newText);
+		this.text = this.text.concat (newText);
 	}
 
 	void delText() {
@@ -26,6 +26,6 @@ public class Page {
 	}
 
 	String viewPage() {
-		return (this.title + "/n" + this.text);
+		return (this.title + "\n" + this.text);
 	}
 }
