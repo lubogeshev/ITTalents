@@ -5,6 +5,7 @@ public class OfficeDemo {
 	public static void main(String[] args) {
 
 		AllWork work = new AllWork();
+		Employee.allWork = work;
 		Random r = new Random();
 
 		Task[] tasks = new Task[11];
