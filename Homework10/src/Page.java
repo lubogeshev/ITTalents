@@ -1,8 +1,8 @@
 
 public class Page {
 
-	String title;
-	String text;
+	private String title;
+	private String text;
 
 	public Page(String title, String text) {
 		if (title == null) {
@@ -18,6 +18,9 @@ public class Page {
 	}
 
 	void addText(String newText) {
+		if (newText == null) {
+			newText = "";
+		}
 		this.text = this.text.concat (newText);
 	}
 
