@@ -7,6 +7,9 @@ public class SecuredNotepad extends SimpleNotepad {
 
 	public SecuredNotepad(int numberOfPages, String password) {
 		super(numberOfPages);
+		if (password == null) {
+			password = "";
+		}
 		this.password = password;
 	}
 	
