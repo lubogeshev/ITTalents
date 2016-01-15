@@ -5,4 +5,6 @@ public interface INotepad {
 	void replaceText (int pageNumber, String newText);
 	void delText (int pageNumber);
 	void viewPage ();
+	boolean searchWord(String word);
+	void printAllPagesWithDigits();
 }
