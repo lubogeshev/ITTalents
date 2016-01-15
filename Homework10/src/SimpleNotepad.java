@@ -1,7 +1,7 @@
 
 public class SimpleNotepad implements INotepad {
 
-	Page[] pages;
+	private Page[] pages;
 
 	public SimpleNotepad(int numberOfPages) {
 		if (numberOfPages < 0) {
@@ -14,7 +14,7 @@ public class SimpleNotepad implements INotepad {
 		}
 
 	}
-
+	
 	@Override
 	public void addText(int pageNumber, String newText) {
 		if (this.validatePageNumber(pageNumber)) {
