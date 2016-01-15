@@ -4,7 +4,7 @@ public class Employee {
 	private String name;
 	private Task currentTask;
 	private int hoursLeft;
-	private AllWork allWork;
+	public static AllWork allWork;
 
 	public Employee(final String name) {
 		this.setName(name);
