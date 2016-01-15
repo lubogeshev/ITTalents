@@ -27,6 +27,8 @@ public class SecuredNotepad extends SimpleNotepad {
 	public void setPassword(String password) {
 		if (this.validatePassword()){
 			this.password = password;
+		} else {
+			System.out.println("Password remains unchanged!");
 		}
 	}
 
@@ -34,6 +36,8 @@ public class SecuredNotepad extends SimpleNotepad {
 	public void addText(int pageNumber, String newText) {
 		if (this.validatePassword()){
 			super.addText(pageNumber, newText);
+		} else {
+			System.out.println(newText + " was not added to page " + pageNumber);
 		}
 	}
 	
@@ -41,6 +45,8 @@ public class SecuredNotepad extends SimpleNotepad {
 	public void replaceText(int pageNumber, String newText) {
 		if (this.validatePassword()){
 			super.replaceText(pageNumber, newText);
+		} else {
+			System.out.println(newText + " did not replace the text on page " + pageNumber);
 		}
 	}
 	
@@ -48,6 +54,8 @@ public class SecuredNotepad extends SimpleNotepad {
 	public void delText(int pageNumber) {
 		if (this.validatePassword()){
 			super.delText(pageNumber);
+		} else {
+			System.out.println("Text on page " + pageNumber + " was not deleted!");
 		}
 	}
 	
@@ -55,6 +63,26 @@ public class SecuredNotepad extends SimpleNotepad {
 	public void viewPage() {
 		if (this.validatePassword()){
 			super.viewPage();
+		} else {
+			System.out.println("Can not view pages!");
+		}
+	}
+	
+	@Override
+	public boolean searchWord(String word) {
+		if (this.validatePassword()){
+			return super.searchWord(word);
+		}
+		System.out.println("Search terminated, will return false!");
+		return false;
+	}
+	
+	@Override
+	public void printAllPagesWithDigits() {
+		if (this.validatePassword()){
+			super.printAllPagesWithDigits();
+		} else {
+			System.out.println("Can not view pages!");
 		}
 	}
 	
