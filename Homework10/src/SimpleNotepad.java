@@ -40,6 +40,7 @@ public class SimpleNotepad implements INotepad {
 	@Override
 	public void viewPage() {
 		for (int i = 0; i < pages.length; i++){
+			System.out.println("Page " + i);
 			System.out.println(pages[i].viewPage());
 		}
 	}
