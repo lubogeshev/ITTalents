@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class SecuredNotepad extends SimpleNotepad {
 	
 	private String password;
+	private Scanner sc;
 
 	public SecuredNotepad(int numberOfPages, String password) {
 		super(numberOfPages);
@@ -10,10 +11,9 @@ public class SecuredNotepad extends SimpleNotepad {
 	}
 	
 	boolean validatePassword (){
-		Scanner sc = new Scanner(System.in);
+		sc = new Scanner(System.in);
 		System.out.println("Please, enter your Notebook Password!");
 		String password = sc.nextLine();
-		sc.close();
 		if (this.password.equals(password)) {
 			return true;
 		}
