@@ -16,11 +16,17 @@ public class NotepadDemo {
 		
 		Page lastPage = new Page("Last page", "I te taka...");
 		System.out.println(lastPage.viewPage());
+		System.out.println(lastPage.searchWord("tE"));
+		lastPage.addText("adw3adawd");
+		System.out.println (lastPage.containsDigits());
 		
 		INotepad x = new SimpleNotepad(3);
 		x.viewPage();
 		x = new SecuredNotepad(4, "");
 		x.viewPage();
+		
+		System.out.println(taenDnevnik.searchWord("a"));
+		notepad.printAllPagesWithDigits();
 		
 	}
 
