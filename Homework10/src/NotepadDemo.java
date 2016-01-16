@@ -27,9 +27,13 @@ public class NotepadDemo {
 		
 		System.out.println(taenDnevnik.searchWord("a"));
 		notepad.printAllPagesWithDigits();
+	
+		ElectronicSecuredNotepad elno = new ElectronicSecuredNotepad(7, "");
+		elno.start();
+		elno.replaceText(2, "Text on page 22");
+		elno.addText(5, "Additional text");
+		elno.printAllPagesWithDigits();
+		elno.viewPage();
 		
-	}
-
-	
-	
+	}	
 }
