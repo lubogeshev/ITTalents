@@ -13,7 +13,7 @@ public class SecuredNotepad extends SimpleNotepad {
 		this.password = password;
 	}
 	
-	private boolean validatePassword (){
+	protected boolean validatePassword (){
 		sc = new Scanner(System.in);
 		System.out.println("Please, enter your Notebook Password!");
 		String password = sc.nextLine();
