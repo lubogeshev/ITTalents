@@ -10,7 +10,7 @@ public class SimpleNotepad implements INotepad {
 		}
 		this.pages = new Page[numberOfPages];
 		for (int i = 0; i < pages.length; i++) {
-			pages[i] = new Page("", "");
+			pages[i] = new Page("Page " + i + " title", "Page " + i + " text");
 		}
 
 	}
@@ -19,6 +19,7 @@ public class SimpleNotepad implements INotepad {
 	public void addText(int pageNumber, String newText) {
 		if (this.validatePageNumber(pageNumber)) {
 			this.pages[pageNumber].addText(newText);
+			System.out.println("Text added!");
 		}
 	}
 
@@ -27,6 +28,7 @@ public class SimpleNotepad implements INotepad {
 		if (this.validatePageNumber(pageNumber)) {
 			this.pages[pageNumber].delText();
 			this.pages[pageNumber].addText(newText);
+			System.out.println("Text replaced!");
 		}
 	}
 
@@ -34,6 +36,7 @@ public class SimpleNotepad implements INotepad {
 	public void delText(int pageNumber) {
 		if (this.validatePageNumber(pageNumber)) {
 			this.pages[pageNumber].delText();
+			System.out.println("Text deleted!");
 		}
 	}
 
@@ -65,6 +68,7 @@ public class SimpleNotepad implements INotepad {
 
 	@Override
 	public void printAllPagesWithDigits() {
+		System.out.println("Pages that contain digits:");
 		for (int i = 0; i < this.pages.length; i++){
 			if (this.pages[i].containsDigits()){
 				System.out.println(this.pages[i].viewPage());
