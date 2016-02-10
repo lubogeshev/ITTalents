@@ -28,7 +28,6 @@ public class SecuredNotepad extends SimpleNotepad {
 //		}
 //		return null;
 //	}
-
 		
 //	private boolean strongPassword(String password) {
 //		if (password.length() > 5) {
