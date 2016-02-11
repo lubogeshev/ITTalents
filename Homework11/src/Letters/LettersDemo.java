@@ -29,6 +29,7 @@ public class LettersDemo {
 				letters.put(text.charAt(i), 1);
 			else
 				letters.put(text.charAt(i), letters.get(text.charAt(i)).intValue() + 1);
+
 		}
 
 		List <Entry<Character, Integer>> copy = new ArrayList <Entry<Character, Integer>>();
